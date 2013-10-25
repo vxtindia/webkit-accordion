@@ -4,15 +4,20 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 	<title>Lightweight mobile webkit CSS/jQuery accordion, perfect for use in web/PhoneGap apps</title>
-	
-	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js'></script>
-	
+
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+
 	<link href="../accordion.css" rel="stylesheet">
 	<script src="../jquery.accordion.min.js"></script>
-	
+
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('dl').accordion();
+			var src = "http://www.hdwallpapersinn.com/wp-content/uploads/2013/05/hd-wallpaper-35.jpg?bust=" + Math.random();
+			var setHeight = $('dl').accordion();
+			$('.img').attr('src', src)
+				.on('load', function() {
+					setHeight();
+				});
 		});
 	</script>
 </head>
@@ -20,11 +25,12 @@
 	<p>
 		<mark>This demo will only work on mobile webkit/safari devices (or the Xcode iPhone simulator) that use the 'touchstart' event.</mark>
 	</p>
-	
+
 	<dl>
 		<dt id="kr"><a href="#kr">Knight Rider</a></dt>
 		<dd>
 			<p>Knight Rider, a shadowy flight into the dangerous world of a man who does not exist. Michael Knight, a young loner on a crusade to champion the cause of the innocent, the helpless in a world of criminals who operate above the law.</p>
+			<img class="img" src="">
 		</dd>
 		<dt id="tc"><a href="#tc">Thundercats</a></dt>
 		<dd>
