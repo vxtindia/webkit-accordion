@@ -2,7 +2,7 @@
 	$.fn.accordion = function() {
 		var el = this;
 		var ddHeight;
-		ddHeight = new Array();
+		ddHeight = [];
 
 		el.addClass('enhance');
 		setHeight();
@@ -12,8 +12,8 @@
 				var dd = $(this);
 
 				dd.css('height', '100%');
-				ddHeight[i] = dd.height();
 				dd.removeAttr('style');
+				ddHeight[i] = dd.removeClass('closed').height();
 				dd.addClass('closed');
 			});
 		}
@@ -31,7 +31,7 @@
 				.removeClass('closed');
 		}
 
-		el.find('dt a').bind('touchstart', function(e) {
+		el.find('dt a').bind('click', function(e) {
 			e.preventDefault();
 
 			var toExpand = $(this).parent().next('dd');
@@ -63,8 +63,8 @@
 			}
 		});
 
-		return function() {
-			setHeight();
+		return {
+			recalculateHeight: setHeight
 		};
 	}
 })(jQuery);

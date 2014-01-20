@@ -12,12 +12,18 @@
 
 	<script type="text/javascript">
 		$(document).ready(function(){
+			// Image URL contains a cache buster so that everytime, the demo image is reloaded by the browser
 			var src = "http://www.hdwallpapersinn.com/wp-content/uploads/2013/05/hd-wallpaper-35.jpg?bust=" + Math.random();
-			var setHeight = $('dl').accordion();
-			$('.img').attr('src', src)
-				.on('load', function() {
-					setHeight();
-				});
+
+			// accordion object contains a recalculateHeight() method
+			// which can be called anytime to recalculate the height of each section
+			var accordion = $('dl').accordion();
+			$('.img').attr('src', src);
+
+			window.onload = function() {
+				// After loading all resources, trigger a height recalculation
+				accordion.recalculateHeight();
+			}
 		});
 	</script>
 </head>
