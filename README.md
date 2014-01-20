@@ -5,8 +5,6 @@ A tiny jQuery plugin, with minimal [semantic] markup, for generating hardware ac
 ## Usage
 
 ```
-var accordion = $('dl').accordion();
-
 <dl>
 	<dt id="c1"><a href="#c1">Your link title</a></dt>
 	<dd>
@@ -19,6 +17,7 @@ var accordion = $('dl').accordion();
 </dl>
 
 <script>
+  var accordion = $('dl').accordion();
   // Call recalculateHeight to set the computed height anytime
   setTimeout(function() {
     accordion.recalculateHeight();
